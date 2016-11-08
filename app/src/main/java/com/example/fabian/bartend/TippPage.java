@@ -19,7 +19,7 @@ public class TippPage extends AppCompatActivity {
     ActionBar actionBar;
     ArrayList<String> ings = new ArrayList<String>();
 
-    protected EditText textField;
+    protected AutoCompleteTextView textField;
     protected Button submitButton;
     protected String tempString;
     protected int count;
@@ -54,7 +54,7 @@ public class TippPage extends AppCompatActivity {
 
         submitButton = (Button) findViewById(R.id.submitButton);
 
-        AutoCompleteTextView textField = (AutoCompleteTextView) findViewById(R.id.ingTextField);
+        textField = (AutoCompleteTextView) findViewById(R.id.ingTextField);
         String[] ings = allIngreds.toArray(new String[allIngreds.size()]);
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ings);
@@ -65,14 +65,11 @@ public class TippPage extends AppCompatActivity {
         add();
         submit();
 
-        actionBar = getSupportActionBar();
-        actionBar.hide();
-
         submitButton.setBackgroundResource(R.drawable.subbuttonsmall);
     }
 
     public void add() {
-        textField.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        textField.setOnEditorActionListener(new AutoCompleteTextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                 int result = actionId & EditorInfo.IME_MASK_ACTION;
