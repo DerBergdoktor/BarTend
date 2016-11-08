@@ -1,6 +1,7 @@
 package com.example.fabian.bartend;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.util.StringBuilderPrinter;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 /**
  * Created by Fabian on 19.10.2016.
  */
+
 public class CustomDrinkAdapter extends PagerAdapter {
 
     public DrinkHandler drinkHandler;
@@ -24,17 +26,30 @@ public class CustomDrinkAdapter extends PagerAdapter {
     private LayoutInflater layoutInflater;
     public int drinkID;
 
-    public CustomDrinkAdapter(Context ctx, int drID){
+    public CustomDrinkAdapter(Context ctx, int drID, int src){
+
+        System.out.println("See Kontext: " + drID + " , " + src);
 
         drinkID = drID;
         this.ctx = ctx;
-        drinkHandler = DrinkChooser.drinkHandler;
-        drinkData = drinkHandler.getDrink_data();
+        if(src == 0) {
+            drinkHandler = DrinkChooser.drinkHandler;
+            drinkData = drinkHandler.getDrink_data();
+        }
+
+        else if(src == 1){
+            drinkHandler = TippViewer.drinkHandlerTipp;
+            drinkData = drinkHandler.getDrink_data();
+        }
+
 
         for(int i = 0; i < drinkData.length;i++ ){
-            if (drinkData[i].getID() == drID){
+            System.out.println("Array: " + drinkData[i].getName() + " , " + drinkData[i].getID());
+            if (i == drID){
+                System.out.println("See Chosen Drink: " + drinkData[i].getName());
                 image_ressources = drinkData[i].getImages();
                 inst_ressources = drinkData[i].getInstructions();
+                System.out.println("See View Count: " + image_ressources.length);
             }
         }
     }
@@ -66,14 +81,15 @@ public class CustomDrinkAdapter extends PagerAdapter {
         }
 
         else if(position == 1){
-            imageView.setImageResource(0);
+            imageView.setImageResource(image_ressources[position]);
             textView1.setText("Zutaten");
-
+            /*
             StringBuilder builder = new StringBuilder();
             for (String details: drinkData[drinkID].getIngridients()){
                 builder.append(details + "\n");
             }
             textView2.setText(builder.toString());
+            */
         }
         else {
             imageView.setImageResource(image_ressources[position]);
@@ -90,5 +106,6 @@ public class CustomDrinkAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((LinearLayout) object);
     }
+
 
 }

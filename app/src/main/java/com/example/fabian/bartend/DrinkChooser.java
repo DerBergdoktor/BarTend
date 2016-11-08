@@ -7,33 +7,52 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Random;
 
-public class DrinkChooser extends AppCompatActivity implements SensorEventListener{
+public class DrinkChooser extends AppCompatActivity /*implements SensorEventListener */{
 
     ViewPager viewPager;
     CustomSwipeAdapter adapter;
-    Button drinkButton;
+    Button drinkButton, tippButton;
     static DrinkHandler drinkHandler;
 
+    /*
     private Sensor mySensor;
     private SensorManager SM;
     double sensorValue;
     private int shuffleInt;
+    */
     Typeface font;
+
+    ActionBar actionBar;
+
+    int source = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_chooser);
 
+        actionBar = getSupportActionBar();
+        /*
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#a49cae"));
+        actionBar.setBackgroundDrawable(colorDrawable);
+        */
+        actionBar.hide();
+
+
+
         drinkButton = (Button) findViewById(R.id.drinkButton);
+        tippButton = (Button) findViewById(R.id.tippButton);
 
         drinkHandler = new DrinkHandler();
         drinkHandler.fillDrinkData();
@@ -41,20 +60,27 @@ public class DrinkChooser extends AppCompatActivity implements SensorEventListen
         viewPager = (ViewPager)findViewById(R.id.drinkViewer);
         adapter = new CustomSwipeAdapter(this, drinkHandler);
         viewPager.setAdapter(adapter);
-
+/*
         SM = (SensorManager) getSystemService(SENSOR_SERVICE);
         mySensor = SM.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         SM.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
-
+*/
 
         font = Typeface.createFromAsset(getAssets(), "Lobster.otf");
         adapter.setFont(font);
 
 
         drinkButton.setBackgroundResource(R.drawable.makeit);
+        tippButton.setBackgroundResource(R.drawable.tippbuttonsmall);
+
+
+
         makeDrink();
+        //shakeDrink();
+        tipp();
     }
 
+/*
     @Override
     public void onSensorChanged(SensorEvent event) {
 
@@ -79,8 +105,10 @@ public class DrinkChooser extends AppCompatActivity implements SensorEventListen
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
+*/
 
     public void makeDrink() {
+
         drinkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,8 +117,38 @@ public class DrinkChooser extends AppCompatActivity implements SensorEventListen
                 Intent toy = new Intent(DrinkChooser.this, DrinkPage.class);
 
                 toy.putExtra("drinkID",viewPager.getCurrentItem());
+                toy.putExtra("source", source);
 
                 startActivity(toy);
+            }
+        });
+    }
+/*
+    public void shakeDrink() {
+
+        onClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent toy = new Intent(DrinkChooser.this, DrinkPage.class);
+
+                toy.putExtra("drinkID",viewPager.getCurrentItem());
+                toy.putExtra("source", source);
+
+                startActivity(toy);
+            }
+        });
+    }
+*/
+
+    public void tipp() {
+        tippButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent tipp = new Intent(DrinkChooser.this, TippPage.class);
+                startActivity(tipp);
             }
         });
     }

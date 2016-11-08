@@ -18,27 +18,29 @@
         android:id="@+id/header"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="50dp"
+        android:textSize="60dp"
         android:textColor="@color/text_color"
         />
 
-    <Button
-        android:scaleX="0.5"
-        android:scaleY="0.5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/shakeBut"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="63dp" />
 
     <ImageView
+        android:scaleX="0.7"
+        android:scaleY="0.7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/baricon"
-        android:src="@drawable/bartend_icon"
+        android:src="@drawable/bartendlogo_medium"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Shakin'"
+        android:id="@+id/slogan"
+        android:textSize="45dp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="69dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

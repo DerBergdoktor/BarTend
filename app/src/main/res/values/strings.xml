@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">BarTend</string>
-    <color name="bg_color">#d8d7e1</color>
-    <color name="text_color">#afa6ba</color>
+    <color name="bg_color">#525a52</color>
+    <color name="text_color">#b7c3b7</color>
 </resources>

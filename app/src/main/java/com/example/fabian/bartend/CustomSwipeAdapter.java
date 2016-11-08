@@ -27,6 +27,7 @@ public class CustomSwipeAdapter extends PagerAdapter {
     public int viewID;
     public TextView textView;
     public Typeface font1 = Typeface.SANS_SERIF;
+    public ImageView imageView;
 
     public CustomSwipeAdapter(Context ctx, DrinkHandler drinkH){
 
@@ -55,7 +56,7 @@ public class CustomSwipeAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         layoutInflater = (LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item_view = layoutInflater.inflate(R.layout.swipe_layout, container, false);
-        ImageView imageView = (ImageView)item_view.findViewById(R.id.image_view);
+        imageView = (ImageView)item_view.findViewById(R.id.image_view);
         textView = (TextView) item_view.findViewById(R.id.drinkname);
         textView.setTypeface(font1);
 
@@ -81,5 +82,9 @@ public class CustomSwipeAdapter extends PagerAdapter {
 
     public void setFont(Typeface font){
         font1 = font;
+    }
+
+    public ImageView getImage(){
+        return imageView;
     }
 }
