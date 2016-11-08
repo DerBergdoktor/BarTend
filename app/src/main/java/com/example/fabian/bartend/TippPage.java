@@ -1,13 +1,16 @@
 package com.example.fabian.bartend;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
+import android.view.*;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.view.inputmethod.EditorInfo;
+import android.widget.AutoCompleteTextView;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -16,91 +19,91 @@ public class TippPage extends AppCompatActivity {
     ActionBar actionBar;
     ArrayList<String> ings = new ArrayList<String>();
 
-    EditText textField;
-    Button addButton;
-    Button submitButton;
-    String tempString;
-    int count;
-    DrinkHandler drinkHandler;
-    ArrayList<Drink> tempDrinks = new ArrayList<Drink>();
-    static Drink[] matchedDrinks;
-    TextView textView;
-    boolean repeat = false;
-    Drink closeSugg;
-    String missingIng;
+    protected EditText textField;
+    protected Button submitButton;
+    protected String tempString;
+    protected int count;
+    protected DrinkHandler drinkHandler;
+    protected ArrayList<Drink> tempDrinks = new ArrayList<Drink>();
+    protected static Drink[] matchedDrinks;
+    protected TextView textView;
+    protected boolean repeat = false;
+    protected Drink closeSugg;
+    protected String missingIng;
+    protected ArrayList<String> allIngreds;
+    protected Drink[] drinks;
+
+    public String stringBuilder(ArrayList<String> list) {
+        StringBuilder builder = new StringBuilder();
+        for(int i = 0; i < list.size(); i++) {
+            builder.append((i+1) + ". " + list.get(i) + "\n");
+        }
+        return builder.toString();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipp_page);
-
+        drinkHandler = new DrinkHandler();
+        drinkHandler.fillDrinkData();
+        drinks = drinkHandler.getDrink_data();
+        allIngreds = drinkHandler.getAllIngredients();
         actionBar = getSupportActionBar();
-        /*
-        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#a49cae"));
-        actionBar.setBackgroundDrawable(colorDrawable);
-        */
         actionBar.hide();
 
-        addButton = (Button) findViewById(R.id.addButton);
         submitButton = (Button) findViewById(R.id.submitButton);
-        textField = (EditText) findViewById(R.id.ingTextField);
 
+        AutoCompleteTextView textField = (AutoCompleteTextView) findViewById(R.id.ingTextField);
+        String[] ings = allIngreds.toArray(new String[allIngreds.size()]);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ings);
+        textField.setAdapter(adapter);
+        textField.setThreshold(1);
         textView = (TextView) findViewById(R.id.textList);
 
         add();
         submit();
 
         actionBar = getSupportActionBar();
-        /*
-        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#a49cae"));
-        actionBar.setBackgroundDrawable(colorDrawable);
-        */
         actionBar.hide();
 
-        addButton.setBackgroundResource(R.drawable.plusbuttonsmall);
         submitButton.setBackgroundResource(R.drawable.subbuttonsmall);
     }
 
     public void add() {
-        addButton.setOnClickListener(new View.OnClickListener() {
+        textField.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onClick(View v) {
-                tempString = textField.getText().toString();
-                for(String comp : ings){
-                    if(comp.equalsIgnoreCase(tempString)){
-                        repeat = true;
-                    }
+            public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+                int result = actionId & EditorInfo.IME_MASK_ACTION;
+                switch(result) {
+                    case EditorInfo.IME_ACTION_DONE:
+                    case EditorInfo.IME_ACTION_NEXT:
+                        tempString = textField.getText().toString();
+                        for(String comp : ings){
+                            if(comp.equalsIgnoreCase(tempString)){
+                                repeat = true;
+                            }
+                        }
+                        if(repeat == false){
+                            ings.add(count,tempString);
+                            textView.setText(stringBuilder(ings));
+                            count++;
+                        }
+                        repeat = false;
                 }
-                if(repeat == false){
-                    ings.add(count,tempString);
-                    textField.setText("");
-                    setTextList();
-                    count++;
-                }
-                repeat = false;
+                return false;
             }
         });
-    }
-
-    public void setTextList(){
-        StringBuilder builder = new StringBuilder();
-        for (String details: ings){
-            builder.append(details + "\n");
-        }
-        textView.setText(builder.toString());
     }
 
     public void submit() {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                drinkHandler = new DrinkHandler();
-                drinkHandler.fillDrinkData();
-                Drink[] drinks = drinkHandler.getDrink_data();
                 int check = 0;
                 int listCount = 0;
-                int tempDrinkCount = 0;
+                int tempkkCount = 0;
                 int matchListCount = 0;
 
                 for (int count = 0; count < drinks.length; count++) {
@@ -115,8 +118,7 @@ public class TippPage extends AppCompatActivity {
                         listCount++;
                     }
                     if (check == drinks[count].getIngridients().size()) {
-                        tempDrinks.add(tempDrinkCount, drinks[count]);
-                        tempDrinkCount++;
+                        tempDrinks.add(tempDrinks.size(), drinks[count]);
                         System.out.println("Treffer: " + drinks[count].getName());
                     }
                     else if(check == drinks[count].getIngridients().size()-1){
@@ -127,7 +129,7 @@ public class TippPage extends AppCompatActivity {
                 }
 
                 if (tempDrinks.size() != 0) {
-                    matchedDrinks = new Drink[tempDrinkCount];
+                    matchedDrinks = new Drink[tempDrinks.size()];
                     for (Drink addedDrink : tempDrinks) {
                         System.out.println("Drinkliste: " + addedDrink.getName());
                         matchedDrinks[matchListCount] = addedDrink;

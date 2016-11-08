@@ -21,25 +21,16 @@
         android:id="@+id/textView"
         android:paddingTop="20dp" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/ingTextField"
+        android:maxLines="1"
+        android:inputType="text"
         android:layout_width="800px"
         android:layout_height="100px"
         android:layout_marginTop="70dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textColor="@color/text_color" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:scaleX="0.4"
-        android:scaleY="0.4"
-        android:id="@+id/addButton"
-        android:layout_marginTop="76dp"
-        android:layout_below="@+id/ingTextField"
-        android:layout_alignStart="@+id/textList" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -49,7 +40,6 @@
         android:scaleX="0.4"
         android:scaleY="0.4"
         android:id="@+id/submitButton"
-        android:layout_alignTop="@+id/addButton"
         android:layout_alignEnd="@+id/ingTextField" />
 
     <TextView

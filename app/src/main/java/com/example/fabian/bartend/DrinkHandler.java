@@ -1,5 +1,8 @@
 package com.example.fabian.bartend;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by Fabian on 19.10.2016.
  */
@@ -376,5 +379,17 @@ public class DrinkHandler {
         drink_data = null;
         drink_data = newDrinks;
         drink_images = new int[drink_data.length];
+    }
+
+    public ArrayList<String> getAllIngredients() {
+        ArrayList<String> allIngreds = new ArrayList<String>();
+        for (int i = 0; i < drink_data.length; i++) {
+            for(String ingrid : drink_data[i].getIngridients()) {
+                if(!allIngreds.contains(ingrid)) {
+                    allIngreds.add(ingrid);
+                }
+            }
+        }
+        return allIngreds;
     }
 }
