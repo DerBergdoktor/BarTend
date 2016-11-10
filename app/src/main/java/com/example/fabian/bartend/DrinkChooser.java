@@ -2,27 +2,18 @@ package com.example.fabian.bartend;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import java.util.Random;
 
 public class DrinkChooser extends AppCompatActivity /*implements SensorEventListener */{
 
     ViewPager viewPager;
     CustomSwipeAdapter adapter;
-    Button drinkButton, tippButton;
+    Button drinkButton, filterButton, tippButton;
     static DrinkHandler drinkHandler;
 
     /*
@@ -52,6 +43,7 @@ public class DrinkChooser extends AppCompatActivity /*implements SensorEventList
 
 
         drinkButton = (Button) findViewById(R.id.drinkButton);
+        filterButton = (Button) findViewById(R.id.filterButton);
         tippButton = (Button) findViewById(R.id.tippButton);
 
         drinkHandler = new DrinkHandler();
@@ -71,6 +63,7 @@ public class DrinkChooser extends AppCompatActivity /*implements SensorEventList
 
 
         drinkButton.setBackgroundResource(R.drawable.makeit);
+        filterButton.setBackgroundResource(R.drawable.filter_button_small);
         tippButton.setBackgroundResource(R.drawable.tippbuttonsmall);
 
 
@@ -143,7 +136,7 @@ public class DrinkChooser extends AppCompatActivity /*implements SensorEventList
 */
 
     public void tipp() {
-        tippButton.setOnClickListener(new View.OnClickListener() {
+        filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

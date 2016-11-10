@@ -4,10 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/bg_color"
     tools:context="com.example.fabian.bartend.TippViewer">
+
+    <Button
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:layout_marginBottom="-9dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/drinkButton"
+        android:layout_alignBottom="@+id/drinkViewer"
+        android:layout_centerHorizontal="true" />
+
+
+    <android.support.v4.view.ViewPager
+
+        android:id="@+id/drinkViewer"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"></android.support.v4.view.ViewPager>
+
 
 </RelativeLayout>

@@ -32,7 +32,7 @@ public class TippViewer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drink_chooser);
+        setContentView(R.layout.activity_tipp_viewer);
 
 
 

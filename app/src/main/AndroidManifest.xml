@@ -17,10 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DrinkChooser" />
-        <activity android:name=".DrinkPage" />
-        <activity android:name=".TippPage" />
-        <activity android:name=".TippViewer"></activity>
+            <activity android:name=".DrinkChooser" android:screenOrientation="portrait"/>
+            <activity android:name=".DrinkPage" android:screenOrientation="portrait"/>
+            <activity android:name=".TippPage" android:screenOrientation="portrait"/>
+            <activity android:name=".TippViewer" android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
