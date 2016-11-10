@@ -10,8 +10,8 @@ public class DrinkHandler {
 
     public void fillDrinkData (){
 
-        drink_data = new Drink[10];
-        drink_images = new int[10];
+        drink_data = new Drink[20];
+        drink_images = new int[20];
 
         // Create Drink objects, set all the values, paste them into drink_data
 
@@ -36,7 +36,7 @@ public class DrinkHandler {
         martini.addStep("Kräftig umrühren bis der Drink gut gekühlt ist",R.drawable.martini03);
         martini.addStep("Drink durch ein Sieb in ein Cocktailglas füllen",R.drawable.martini04);
         martini.addStep("Zitronenschale eindrehen",R.drawable.martini05);
-        martini.addStep("Zitronenschale in den Drink geben",R.drawable.martini06);
+        martini.addStep("Zitronenschale in den Drink geben",R.drawable.martini6);
         martini.addStep("",R.drawable.fertig);
 
         martini.setID(0);
@@ -321,7 +321,7 @@ public class DrinkHandler {
         drink_data[8] = ramos;
 
 
-        //Create Ramos Fizz
+        //Create Mint Julep
         Drink mintj = new Drink();
 
         mintj.setEffort("aufwendiger");
@@ -357,6 +357,334 @@ public class DrinkHandler {
         mintj.setDefaultImg(11);
 
         drink_data[9] = mintj;
+
+        //Create Cosmopolitan
+        Drink cosmo = new Drink();
+
+        cosmo.setEffort("moderat");
+
+        cosmo.setName("Cosmopolitan");
+
+        cosmo.setSteps(9);
+
+
+        cosmo.addIng("Wodka");
+        cosmo.addIng("Cranberrysaft");
+        cosmo.addIng("Limette");
+        cosmo.addIng("Triple Sec");
+
+        cosmo.addStep("1",R.drawable.cosmo1);
+        cosmo.addStep("2",R.drawable.cosmo_ing);
+        cosmo.addStep("Wodka, Triple Sec, Cranberrysaft und Limettensaft in einen Shaker füllen",R.drawable.cosmo1);
+        cosmo.addStep("Shaker mit Eis auffüllen",R.drawable.cosmo2);
+        cosmo.addStep("Kräftig schütteln",R.drawable.shake);
+        cosmo.addStep("Durch ein Sieb in ein Cocktail- oder Martiniglas gießen",R.drawable.cosmo4);
+        cosmo.addStep("Orangenschale über dem Glas eindrehen",R.drawable.cosmo5);
+        cosmo.addStep("Mit Orangenschale garnieren",R.drawable.cosmo6);
+        cosmo.addStep("",R.drawable.fertig);
+
+        cosmo.setID(10);
+
+        cosmo.setFlavourText("All around the World");
+
+        cosmo.setDefaultImg(7);
+
+        drink_data[10] = cosmo;
+
+        //Create Mai Tai
+        Drink maitai = new Drink();
+
+        maitai.setEffort("moderat");
+
+        maitai.setName("Mai Tai");
+
+        maitai.setSteps(9);
+
+
+        maitai.addIng("Rum");
+        maitai.addIng("Limette");
+        maitai.addIng("Curacao");
+        maitai.addIng("Orgeat");
+        maitai.addIng("Crushed Ice");
+
+        maitai.addStep("1",R.drawable.maitai1);
+        maitai.addStep("2",R.drawable.maitai_ing);
+        maitai.addStep("Rum, Limettensaft, Curaçao und Orgeat in einen Cocktailshaker geben",R.drawable.maitai1);
+        maitai.addStep("Shaker mit Eis füllen",R.drawable.maitai2);
+        maitai.addStep("Kräftig schütteln",R.drawable.shake);
+        maitai.addStep("Durch ein Sieb in ein hohes Glas füllen",R.drawable.maitai4);
+        maitai.addStep("Mit Crushed Ice auffüllen",R.drawable.maitai5);
+        maitai.addStep("Mit Minzzweig garnieren",R.drawable.maitai6);
+        maitai.addStep("",R.drawable.fertig);
+
+        maitai.setID(11);
+
+        maitai.setFlavourText("Until the Rum is gone");
+
+        maitai.setDefaultImg(7);
+
+        drink_data[11] = maitai;
+
+
+        //Create Whiskey Sour
+        Drink whiskysour = new Drink();
+
+        whiskysour.setEffort("simpel");
+
+        whiskysour.setName("Whiskey Sour");
+
+        whiskysour.setSteps(8);
+
+
+        whiskysour.addIng("Whiskey");
+        whiskysour.addIng("Zitrone");
+        whiskysour.addIng("Zucker");
+
+        whiskysour.addStep("1",R.drawable.whiskeysour1);
+        whiskysour.addStep("2",R.drawable.whiskeysour_ing);
+        whiskysour.addStep("Whiskey, Zitronensaft und Zucker in einen Cocktailshaker geben",R.drawable.whiskeysour1);
+        whiskysour.addStep("Shaker mit Eis füllen",R.drawable.whiskeysour2);
+        whiskysour.addStep("Kräftig schütteln",R.drawable.shake);
+        whiskysour.addStep("Durch ein Sieb in ein Old Fashioned Glas gießen",R.drawable.whiskeysour4);
+        whiskysour.addStep("Mit einer Orangenscheibe garnieren",R.drawable.whiskeysour5);
+        whiskysour.addStep("",R.drawable.fertig);
+
+        whiskysour.setID(12);
+
+        whiskysour.setFlavourText("The Classic Sour");
+
+        whiskysour.setDefaultImg(6);
+
+        drink_data[12] = whiskysour;
+
+        //Create Planters Punch
+        Drink planters = new Drink();
+
+        planters.setEffort("moderat");
+
+        planters.setName("Planters Punch");
+
+        planters.setSteps(8);
+
+
+        planters.addIng("Rum");
+        planters.addIng("Sirup");
+        planters.addIng("Ananassaft");
+        planters.addIng("Crushed Ice");
+        planters.addIng("Limettensaft");
+
+        planters.addStep("1",R.drawable.planters1);
+        planters.addStep("2",R.drawable.planterspunch_ing);
+        planters.addStep("Rum, Sirup, Zitronen- und Ananassaft in ein großes Glas geben",R.drawable.planters1);
+        planters.addStep("Das Glas mit Crushed Ice füllen",R.drawable.planters2);
+        planters.addStep("Umrühren bis das Glas und der Drink sehr kalt sind",R.drawable.planters3);
+        planters.addStep("Den Drink wieder mit Crushed Ice auffüllen",R.drawable.planters4);
+        planters.addStep("Mit Minzzweig und Strohhalm servieren",R.drawable.planters5);
+        planters.addStep("",R.drawable.fertig);
+
+        planters.setID(13);
+
+        planters.setFlavourText("The Tropical Tiki");
+
+        planters.setDefaultImg(6);
+
+        drink_data[13] = planters;
+
+        //Create Tom Collins
+        Drink tom = new Drink();
+
+        tom.setEffort("simpel");
+
+        tom.setName("Tom Collins");
+
+        tom.setSteps(8);
+
+
+        tom.addIng("Gin");
+        tom.addIng("Zucker");
+        tom.addIng("Zitrone");
+        tom.addIng("Soda");
+
+
+        tom.addStep("1",R.drawable.tomcollins1);
+        tom.addStep("2",R.drawable.tomcollins_ing);
+        tom.addStep("Gin, Zitrone und Zucker in ein hohes Glas geben",R.drawable.tomcollins1);
+        tom.addStep("Umrühren bis der Zucker sich gelöst hat",R.drawable.tomcollins2);
+        tom.addStep("Das Glas mit Eiswürfeln auffüllen",R.drawable.tomcollins3);
+        tom.addStep("Den Drink mit Sodawasser auffüllen",R.drawable.tomcollins4);
+        tom.addStep("Mit Strohhalm servieren",R.drawable.tomcollins5);
+        tom.addStep("",R.drawable.fertig);
+
+        tom.setID(14);
+
+        tom.setFlavourText("Limonade für Erwachsene");
+
+        tom.setDefaultImg(6);
+
+        drink_data[14] = tom;
+
+        //Create Margarita
+        Drink margarita = new Drink();
+
+        margarita.setEffort("moderat");
+
+        margarita.setName("Margarita");
+
+        margarita.setSteps(12);
+
+
+        margarita.addIng("Tequila");
+        margarita.addIng("Cointreau");
+        margarita.addIng("Limette");
+        margarita.addIng("Salz");
+
+
+        margarita.addStep("1",R.drawable.martini01);
+        margarita.addStep("2",R.drawable.margarita_ing);
+        margarita.addStep("Salz in einem flachen Teller verteilen",R.drawable.margarita1);
+        margarita.addStep("Mit einer Limettenspalte über den Rand einer Cocktailschale reiben",R.drawable.margarita2);
+        margarita.addStep("Das Glas mit Eiswürfeln auffüllen",R.drawable.margarita4);
+        margarita.addStep("Den Rand des Glases vorsichtig in das Salz drücken",R.drawable.margarita3);
+        margarita.addStep("Tequila, Cointreau und Limettensaft in einen Shaker geben",R.drawable.margarita5);
+        margarita.addStep("Den Shaker mit Eis füllen",R.drawable.margarita6);
+        margarita.addStep("Kräftig schütteln (15s)",R.drawable.shake);
+        margarita.addStep("Den Drink durch ein Sieb in das Glas gießen",R.drawable.margarita8);
+        margarita.addStep("Mit Limettenscheibe garnieren",R.drawable.margarita9);
+        margarita.addStep("",R.drawable.fertig);
+
+        margarita.setID(15);
+
+        margarita.setFlavourText("Arrrrriba!");
+
+        margarita.setDefaultImg(10);
+
+        drink_data[15] = margarita;
+
+        //Create Boulevardier
+        Drink boulevard = new Drink();
+
+        boulevard.setEffort("simpel");
+
+        boulevard.setName("Boulevardier");
+
+        boulevard.setSteps(7);
+
+
+        boulevard.addIng("Campari");
+        boulevard.addIng("Whiskey");
+        boulevard.addIng("Wermut");
+
+        boulevard.addStep("1",R.drawable.boulevardier1);
+        boulevard.addStep("2",R.drawable.boulevardier_ing);
+        boulevard.addStep("Whiskey, Campari und Wermut in ein Old Fashioned Glas füllen",R.drawable.boulevardier1);
+        boulevard.addStep("Glas mit Eis füllen (am besten mit einem sehr großen Eiswürfel)",R.drawable.boulevardier2);
+        boulevard.addStep("Gut umrühren bis der Drink sehr kalt ist (20s)",R.drawable.boulevardier3);
+        boulevard.addStep("Mit einer Cocktailkirsche garnierenn",R.drawable.boulevardier4);
+        boulevard.addStep("",R.drawable.fertig);
+
+        boulevard.setID(16);
+
+        boulevard.setFlavourText("Simple and Smooth");
+
+        boulevard.setDefaultImg(5);
+
+        drink_data[16] = boulevard;
+
+        //Create Frozen Pina Colada
+        Drink frozenpina = new Drink();
+
+        frozenpina.setEffort("simpel");
+
+        frozenpina.setName("Frozen Piña Colada");
+
+        frozenpina.setSteps(7);
+
+
+        frozenpina.addIng("Rum");
+        frozenpina.addIng("Ananassaft");
+        frozenpina.addIng("Kokosmilch");
+        frozenpina.addIng("Limette");
+        frozenpina.addIng("Crushed Ice");
+
+        frozenpina.addStep("1",R.drawable.frozenpina1);
+        frozenpina.addStep("2",R.drawable.frozenpinac_ing);
+        frozenpina.addStep("Zutaten in einen Mixer geben",R.drawable.frozenpina1);
+        frozenpina.addStep("Mixen bis der Drink cremig und schaumig ist",R.drawable.frozenpina2);
+        frozenpina.addStep("Den Drink in ein hohes Glas gießen",R.drawable.frozenpina3);
+        frozenpina.addStep("Mit Cocktailkirsche und Ananasschnitz garnieren",R.drawable.frozenpina4);
+        frozenpina.addStep("",R.drawable.fertig);
+
+        frozenpina.setID(17);
+
+        frozenpina.setFlavourText("Schnee aus der Karibik");
+
+        frozenpina.setDefaultImg(5);
+
+        drink_data[17] = frozenpina;
+
+        //Create Tequila Sunrise
+        Drink tequilasun = new Drink();
+
+        tequilasun.setEffort("simpel");
+
+        tequilasun.setName("Tequila Sunrise");
+
+        tequilasun.setSteps(8);
+
+
+        tequilasun.addIng("Tequila");
+        tequilasun.addIng("Orangensaft");
+        tequilasun.addIng("Grenadine");
+
+        tequilasun.addStep("1",R.drawable.tequilasun1);
+        tequilasun.addStep("2",R.drawable.tequilasun_ing);
+        tequilasun.addStep("Ein hohes Glas mit Eis füllen",R.drawable.tequilasun1);
+        tequilasun.addStep("Tequila und Orangensaft in das Glas geben",R.drawable.tequilasun2);
+        tequilasun.addStep("Umrühren",R.drawable.tequilasun3);
+        tequilasun.addStep("Vorsichtig Grenadine über den Drink geben",R.drawable.tequilasun4);
+        tequilasun.addStep("Mit Orangenscheibe garnieren",R.drawable.tequilasun5);
+        tequilasun.addStep("",R.drawable.fertig);
+
+        tequilasun.setID(18);
+
+        tequilasun.setFlavourText("Die Sonne geht in Mexico auf");
+
+        tequilasun.setDefaultImg(6);
+
+        drink_data[18] = tequilasun;
+
+        //Create Caipirinha
+        Drink caipi = new Drink();
+
+        caipi.setEffort("simpel");
+
+        caipi.setName("Caipirinha");
+
+        caipi.setSteps(9);
+
+
+        caipi.addIng("Cachaca");
+        caipi.addIng("Limette");
+        caipi.addIng("Crushed Ice");
+        caipi.addIng("Zucker");
+
+        caipi.addStep("1",R.drawable.caipirinha1);
+        caipi.addStep("2",R.drawable.caipirinha_ing);
+        caipi.addStep("Limetten und Zucker in ein mittelgroßes Glas geben",R.drawable.caipirinha1);
+        caipi.addStep("Limetten mit einem Holzlöffel zerdrücken",R.drawable.caipirinha2);
+        caipi.addStep("Das Glas mit Crushed Ice auffüllen",R.drawable.caipirinha3);
+        caipi.addStep("Den Cachaça dazugeben",R.drawable.caipirinha4);
+        caipi.addStep("Kurz umrühren",R.drawable.caipirinha5);
+        caipi.addStep("Mit Limettenscheibe und Strohhalm servieren",R.drawable.caipirinha6);
+        caipi.addStep("",R.drawable.fertig);
+
+        caipi.setID(19);
+
+        caipi.setFlavourText("A Day at the Beach");
+
+        caipi.setDefaultImg(7);
+
+        drink_data[19] = caipi;
 
     }
 
