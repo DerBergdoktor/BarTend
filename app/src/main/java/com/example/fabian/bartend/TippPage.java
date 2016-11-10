@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
@@ -28,8 +27,8 @@ public class TippPage extends AppCompatActivity {
     protected static Drink[] matchedDrinks;
     protected TextView textView;
     protected boolean repeat = false;
-    protected Drink closeSugg;
-    protected String missingIng;
+    protected ArrayList<Drink> closeSugg = new ArrayList<Drink>();
+    protected static ArrayList<String> missingIng = new ArrayList<String>();
     protected ArrayList<String> allIngreds;
     protected Drink[] drinks;
 
@@ -100,69 +99,62 @@ public class TippPage extends AppCompatActivity {
             public void onClick(View v) {
                 int check = 0;
                 int listCount = 0;
-                int tempkkCount = 0;
                 int matchListCount = 0;
 
-                for (int count = 0; count < drinks.length; count++) {
+                if(!ings.isEmpty()) {
+                    for (int count = 0; count < drinks.length; count++) {
+                        for (String compare : ings) {
+                            for (String compare2 : drinks[count].getIngridients()) {
+                                if (compare.equalsIgnoreCase(compare2)) {
+                                    check++;
+                                    System.out.println("Zutat passt: "+ compare);
+                                }
+                            }
+                            listCount++;
+                        }
+                        if (check == drinks[count].getIngridients().size()) {
+                            tempDrinks.add(drinks[count]);
+                            System.out.println("Treffer: " + drinks[count].getName());
+                        }
+                        else if(check < drinks[count].getIngridients().size() && check != 0) {
+                            closeSugg.add(drinks[count]);
+                        }
+                        check = 0;
+                    }
 
-                    for (String compare : ings) {
-                        for (String compare2 : drinks[count].getIngridients()) {
-                            if (compare.equalsIgnoreCase(compare2)) {
-                                check++;
-                                System.out.println("Zutat passt: "+ compare);
+                        if (tempDrinks.size() != 0) {
+                            matchedDrinks = new Drink[tempDrinks.size()];
+                            for (Drink addedDrink : tempDrinks) {
+                                System.out.println("Drinkliste: " + addedDrink.getName());
+                                matchedDrinks[matchListCount] = addedDrink;
+                                matchListCount++;
                             }
                         }
-                        listCount++;
-                    }
-                    if (check == drinks[count].getIngridients().size()) {
-                        tempDrinks.add(tempDrinks.size(), drinks[count]);
-                        System.out.println("Treffer: " + drinks[count].getName());
-                    }
-                    else if(check == drinks[count].getIngridients().size()-1){
-                        closeSugg = drinks[count];
-                    }
-
-                    check = 0;
-                }
-
-                if (tempDrinks.size() != 0) {
-                    matchedDrinks = new Drink[tempDrinks.size()];
-                    for (Drink addedDrink : tempDrinks) {
-                        System.out.println("Drinkliste: " + addedDrink.getName());
-                        matchedDrinks[matchListCount] = addedDrink;
-                        matchListCount++;
-                    }
-
-                    Intent toy = new Intent(TippPage.this, TippViewer.class);
-                    ings.clear();
-                    startActivity(toy);
-                    finish();
-                }
-
-                else if(tempDrinks.size() == 0 && closeSugg != null){
-
-                    for (String compare : ings) {
-                        for (String compare2 : closeSugg.getIngridients()) {
-                            if (!compare.equalsIgnoreCase(compare2)) {
-                                missingIng = compare2;
+                        else if(tempDrinks.size() == 0 && closeSugg.size() != 0){
+                            matchedDrinks = new Drink[closeSugg.size()];
+                            int j = 0;
+                            for (Drink closeDrinks : closeSugg) {
+                                matchedDrinks[j] = closeDrinks;
+                                j++;
+                            }
+                            for (int i = 0;i<ings.size();i++) {
+                                for (String compare2 : closeSugg.get(i).getIngridients()) {
+                                    if (!ings.get(i).equalsIgnoreCase(compare2)) {
+                                        missingIng.add(compare2);
+                                    }
+                                }
+                                listCount++;
                             }
                         }
-                        listCount++;
+
+                        Intent toy = new Intent(TippPage.this, TippViewer.class);
+                        ings.clear();
+                        startActivity(toy);
+                        finish();
+
                     }
-                    textView.setText("Du kannst fast einen " + closeSugg.getName() + " zubereiten \n" + "Es fehlt nur noch: " + missingIng);
                 }
 
-                else {
-                    textView.setText("Mit diesen Zutaten kannst du keinen Cocktail zubereiten");
-                }
-
-                /*
-                for (int k = 0; k < matchedDrinks.length; k++){
-                    System.out.println("Matcheddrinks: " + matchedDrinks[k].getName());
-                }
-                */
-
-            }
         });
     }
 

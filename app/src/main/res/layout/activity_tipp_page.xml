@@ -40,6 +40,7 @@
         android:scaleX="0.4"
         android:scaleY="0.4"
         android:id="@+id/submitButton"
+        android:layout_centerHorizontal="true"
         android:layout_alignEnd="@+id/ingTextField" />
 
     <TextView
