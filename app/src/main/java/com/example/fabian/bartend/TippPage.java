@@ -8,11 +8,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -28,7 +30,7 @@ public class TippPage extends AppCompatActivity {
     protected DrinkHandler drinkHandler;
     protected ArrayList<Drink> tempDrinks = new ArrayList<Drink>();
     protected static Drink[] matchedDrinks;
-    protected TextView textView;
+    protected ListView listView;
     protected boolean repeat = false;
     protected boolean hit = false;
     protected ArrayList<Drink> closeSugg = new ArrayList<Drink>();
@@ -36,6 +38,8 @@ public class TippPage extends AppCompatActivity {
     protected ArrayList<String> allIngreds;
     protected Drink[] drinks;
     AlertDialog dialog;
+
+    ArrayAdapter<String> listadapter;
 
     public String stringBuilder(ArrayList<String> list) {
         StringBuilder builder = new StringBuilder();
@@ -80,12 +84,30 @@ public class TippPage extends AppCompatActivity {
         submitButton = (Button) findViewById(R.id.submitButton);
 
         textField = (AutoCompleteTextView) findViewById(R.id.ingTextField);
-        String[] ings = allIngreds.toArray(new String[allIngreds.size()]);
+        String[] allings = allIngreds.toArray(new String[allIngreds.size()]);
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ings);
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, allings);
         textField.setAdapter(adapter);
         textField.setThreshold(1);
-        textView = (TextView) findViewById(R.id.textList);
+
+        listView = (ListView) findViewById(R.id.listView);
+        listadapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_multiple_choice, android.R.id.text1, allings);
+        listView.setAdapter(listadapter);
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    if(ings.contains(allIngreds.get(position))) {
+                        ings.remove(allIngreds.get(position));
+                    }
+                    else {
+                        ings.add(allIngreds.get(position));
+                    }
+                }
+            });
 
         add();
         submit();
@@ -101,7 +123,8 @@ public class TippPage extends AppCompatActivity {
                 switch(result) {
                     case EditorInfo.IME_ACTION_DONE:
                     case EditorInfo.IME_ACTION_NEXT:
-                        tempString = textField.getText().toString();
+                        String fieldTxt = textField.getText().toString();
+                        tempString = fieldTxt.substring(0, 1).toUpperCase() + fieldTxt.substring(1);
                         for(String comp : ings) {
                             if(comp.equalsIgnoreCase(tempString)){
                                 repeat = true;
@@ -113,8 +136,9 @@ public class TippPage extends AppCompatActivity {
                             }
                         }
                         if(repeat == false && hit == true){
-                            ings.add(count,tempString);
-                            textView.setText(stringBuilder(ings));
+                            ings.add(tempString);
+                            listView.setItemChecked(allIngreds.indexOf(tempString),true);
+                            listadapter.notifyDataSetChanged();
                             textField.setText("");
                             count++;
                         }
