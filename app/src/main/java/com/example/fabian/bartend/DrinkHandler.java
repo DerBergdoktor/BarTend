@@ -42,7 +42,7 @@ public class DrinkHandler {
 
         sirup.setID(150);
 
-        sirup.setFlavourText("Sweet and Spicy");
+        sirup.setFlavourText("Sweet And Spicy");
 
         sirup.setDefaultImg(6);
 
@@ -72,7 +72,7 @@ public class DrinkHandler {
 
         martini.setID(0);
 
-        martini.setFlavourText("Der Klassiker: Gerührt, nicht geschüttelt");
+        martini.setFlavourText("Gerührt, Nicht Geschüttelt");
 
         martini.setDefaultImg(7);
 
@@ -107,7 +107,7 @@ public class DrinkHandler {
 
         oldF.setID(1);
 
-        oldF.setFlavourText("old but gold");
+        oldF.setFlavourText("Old But Gold");
 
         oldF.setDefaultImg(8);
 
@@ -139,7 +139,7 @@ public class DrinkHandler {
 
         manH.setID(2);
 
-        manH.setFlavourText("Welcome to the Big City");
+        manH.setFlavourText("Welcome To The Big City");
 
         manH.setDefaultImg(7);
 
@@ -172,7 +172,7 @@ public class DrinkHandler {
 
         daiq.setID(3);
 
-        daiq.setFlavourText("Sour Greetings from Havanna");
+        daiq.setFlavourText("Sour Greetings From Havanna");
 
         daiq.setDefaultImg(8);
 
@@ -205,7 +205,7 @@ public class DrinkHandler {
 
         french.setID(4);
 
-        french.setFlavourText("Der spritzige Franzose");
+        french.setFlavourText("Der Spritzige Franzose");
 
         french.setDefaultImg(7);
 
@@ -277,7 +277,7 @@ public class DrinkHandler {
 
         bloody.setID(6);
 
-        bloody.setFlavourText("Frisch und rot...");
+        bloody.setFlavourText("Frisch Und Rot...");
 
         bloody.setDefaultImg(10);
 
@@ -345,7 +345,7 @@ public class DrinkHandler {
 
         ramos.setID(8);
 
-        ramos.setFlavourText("Mix it up!");
+        ramos.setFlavourText("Mix It Up!");
 
         ramos.setDefaultImg(7);
 
@@ -383,7 +383,7 @@ public class DrinkHandler {
 
         mintj.setID(9);
 
-        mintj.setFlavourText("Ready for the Gallery");
+        mintj.setFlavourText("Ready For The Gallery");
 
         mintj.setDefaultImg(11);
 
@@ -416,7 +416,7 @@ public class DrinkHandler {
 
         cosmo.setID(10);
 
-        cosmo.setFlavourText("All around the World");
+        cosmo.setFlavourText("All Around The World");
 
         cosmo.setDefaultImg(7);
 
@@ -450,7 +450,7 @@ public class DrinkHandler {
 
         maitai.setID(11);
 
-        maitai.setFlavourText("Until the Rum is gone");
+        maitai.setFlavourText("Until The Rum Is Gone");
 
         maitai.setDefaultImg(7);
 
@@ -548,7 +548,7 @@ public class DrinkHandler {
 
         tom.setID(14);
 
-        tom.setFlavourText("Limonade für Erwachsene");
+        tom.setFlavourText("Limonade Für Erwachsene");
 
         tom.setDefaultImg(6);
 
@@ -615,7 +615,7 @@ public class DrinkHandler {
 
         boulevard.setID(16);
 
-        boulevard.setFlavourText("Simple and Smooth");
+        boulevard.setFlavourText("Simple And Smooth");
 
         boulevard.setDefaultImg(5);
 
@@ -647,7 +647,7 @@ public class DrinkHandler {
 
         frozenpina.setID(17);
 
-        frozenpina.setFlavourText("Schnee aus der Karibik");
+        frozenpina.setFlavourText("Schnee Aus Der Karibik");
 
         frozenpina.setDefaultImg(5);
 
@@ -678,7 +678,7 @@ public class DrinkHandler {
 
         tequilasun.setID(18);
 
-        tequilasun.setFlavourText("Die Sonne geht in Mexico auf");
+        tequilasun.setFlavourText("Die Sonne Geht In Mexiko auf");
 
         tequilasun.setDefaultImg(6);
 
@@ -711,7 +711,7 @@ public class DrinkHandler {
 
         caipi.setID(19);
 
-        caipi.setFlavourText("A Day at the Beach");
+        caipi.setFlavourText("A Day At The Beach");
 
         caipi.setDefaultImg(7);
 

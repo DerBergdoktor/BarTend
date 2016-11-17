@@ -2,6 +2,7 @@ package com.example.fabian.bartend;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v4.view.PagerAdapter;
 import android.util.StringBuilderPrinter;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ public class CustomDrinkAdapter extends PagerAdapter {
     private LayoutInflater layoutInflater;
     public int drinkID;
     private boolean sirup = false;
+    public Typeface font1 = Typeface.SANS_SERIF;
 
     public CustomDrinkAdapter(Context ctx, int drID, int src){
 
@@ -88,6 +90,7 @@ public class CustomDrinkAdapter extends PagerAdapter {
             if (position == 0) {
                 imageView.setImageResource(drinkData[drinkID].getDefaultImg());
                 textView1.setText(drinkData[drinkID].getFlavourText());
+                textView1.setTypeface(Typeface.createFromAsset(ctx.getAssets(), "Lobster.otf"));
                 textView2.setText("");
             } else if (position == 1) {
                 imageView.setImageResource(image_ressources[position]);
@@ -110,6 +113,7 @@ public class CustomDrinkAdapter extends PagerAdapter {
             if (position == 0) {
                 imageView.setImageResource(drinkHandler.sirup.getDefaultImg());
                 textView1.setText(drinkHandler.sirup.getFlavourText());
+                textView1.setTypeface(Typeface.createFromAsset(ctx.getAssets(), "Lobster.otf"));
                 textView2.setText("");
             } else if (position == 1) {
                 imageView.setImageResource(image_ressources[position]);
@@ -138,5 +142,8 @@ public class CustomDrinkAdapter extends PagerAdapter {
         container.removeView((LinearLayout) object);
     }
 
+    public void setFont(Typeface font){
+        font1 = font;
+    }
 
 }
