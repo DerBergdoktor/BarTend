@@ -116,38 +116,40 @@ public class TippPage extends AppCompatActivity {
     }
 
     public void add() {
-        textField.setOnEditorActionListener(new AutoCompleteTextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
-                int result = actionId & EditorInfo.IME_MASK_ACTION;
-                switch(result) {
-                    case EditorInfo.IME_ACTION_DONE:
-                    case EditorInfo.IME_ACTION_NEXT:
-                        String fieldTxt = textField.getText().toString();
-                        tempString = fieldTxt.substring(0, 1).toUpperCase() + fieldTxt.substring(1);
-                        for(String comp : ings) {
-                            if(comp.equalsIgnoreCase(tempString)){
-                                repeat = true;
-                            }
+            textField.setOnEditorActionListener(new AutoCompleteTextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+                    if (textField.getText().toString().trim().length() != 0) {
+                        int result = actionId & EditorInfo.IME_MASK_ACTION;
+                        switch(result) {
+                            case EditorInfo.IME_ACTION_DONE:
+                            case EditorInfo.IME_ACTION_NEXT:
+                                String fieldTxt = textField.getText().toString();
+                                tempString = fieldTxt.substring(0, 1).toUpperCase() + fieldTxt.substring(1);
+                                for(String comp : ings) {
+                                    if(comp.equalsIgnoreCase(tempString)){
+                                        repeat = true;
+                                    }
+                                }
+                                for(String allings : allIngreds) {
+                                    if(allings.equalsIgnoreCase(tempString)) {
+                                        hit = true;
+                                    }
+                                }
+                                if(repeat == false && hit == true){
+                                    ings.add(tempString);
+                                    listView.setItemChecked(allIngreds.indexOf(tempString),true);
+                                    listadapter.notifyDataSetChanged();
+                                    textField.setText("");
+                                    count++;
+                                }
+                                repeat = false;
+                                hit = false;
                         }
-                        for(String allings : allIngreds) {
-                            if(allings.equalsIgnoreCase(tempString)) {
-                                hit = true;
-                            }
-                        }
-                        if(repeat == false && hit == true){
-                            ings.add(tempString);
-                            listView.setItemChecked(allIngreds.indexOf(tempString),true);
-                            listadapter.notifyDataSetChanged();
-                            textField.setText("");
-                            count++;
-                        }
-                        repeat = false;
-                        hit = false;
-                }
+                    }
                 return false;
-            }
-        });
+                }
+            });
     }
 
     public void submit() {
