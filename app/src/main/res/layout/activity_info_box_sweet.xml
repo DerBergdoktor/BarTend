@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_info_box"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/bg_color"
+    tools:context="com.example.fabian.bartend.InfoBoxSweet">
+
+    <ScrollView
+        android:id="@+id/SCROLLER"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1">
+            <TextView
+                android:id="@+id/header"
+                android:text="Süße"
+                android:textAlignment="center"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:textSize="50dp"
+                android:textColor="@color/text_color"
+                />
+            <TextView
+                android:id="@+id/infoText1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:textSize="20dp"
+                android:textColor="@color/text_color"
+                />
+
+            <ImageView
+                android:layout_width="750px"
+                android:layout_height="500px"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:id="@+id/sirupButton"
+                />
+
+        </TableLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

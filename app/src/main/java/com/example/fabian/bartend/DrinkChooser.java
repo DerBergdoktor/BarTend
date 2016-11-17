@@ -78,6 +78,7 @@ public class DrinkChooser extends AppCompatActivity /*implements SensorEventList
         makeDrink();
         //shakeDrink();
         tipp();
+        info();
     }
 
 /*
@@ -149,6 +150,17 @@ public class DrinkChooser extends AppCompatActivity /*implements SensorEventList
 
                 Intent tipp = new Intent(DrinkChooser.this, TippPage.class);
                 startActivity(tipp);
+            }
+        });
+    }
+
+    public void info() {
+        tippButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent info = new Intent(DrinkChooser.this, InfoChooser.class);
+                startActivity(info);
             }
         });
     }

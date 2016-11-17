@@ -25,6 +25,7 @@ public class CustomDrinkAdapter extends PagerAdapter {
     private Context ctx;
     private LayoutInflater layoutInflater;
     public int drinkID;
+    private boolean sirup = false;
 
     public CustomDrinkAdapter(Context ctx, int drID, int src){
 
@@ -41,15 +42,24 @@ public class CustomDrinkAdapter extends PagerAdapter {
             drinkHandler = TippViewer.drinkHandlerTipp;
             drinkData = drinkHandler.getDrink_data();
         }
+        else if(src == 2){
+            sirup = true;
+            drinkHandler = DrinkChooser.drinkHandler;
+            drinkData = new Drink[1];
+            drinkData[0] = drinkHandler.sirup;
+            image_ressources = drinkHandler.sirup.getImages();
+            inst_ressources = drinkHandler.sirup.getInstructions();
+        }
 
-
-        for(int i = 0; i < drinkData.length;i++ ){
-            System.out.println("Array: " + drinkData[i].getName() + " , " + drinkData[i].getID());
-            if (i == drID){
-                System.out.println("See Chosen Drink: " + drinkData[i].getName());
-                image_ressources = drinkData[i].getImages();
-                inst_ressources = drinkData[i].getInstructions();
-                System.out.println("See View Count: " + image_ressources.length);
+        if(sirup == false) {
+            for (int i = 0; i < drinkData.length; i++) {
+                System.out.println("Array: " + drinkData[i].getName() + " , " + drinkData[i].getID());
+                if (i == drID) {
+                    System.out.println("See Chosen Drink: " + drinkData[i].getName());
+                    image_ressources = drinkData[i].getImages();
+                    inst_ressources = drinkData[i].getInstructions();
+                    System.out.println("See View Count: " + image_ressources.length);
+                }
             }
         }
     }
@@ -74,15 +84,14 @@ public class CustomDrinkAdapter extends PagerAdapter {
         TextView textView1 = (TextView) item_view.findViewById(R.id.instructText);
         TextView textView2 = (TextView) item_view.findViewById(R.id.ingriedText);
 
-        if(position == 0){
-            imageView.setImageResource(drinkData[drinkID].getDefaultImg());
-            textView1.setText(drinkData[drinkID].getFlavourText());
-            textView2.setText("");
-        }
-
-        else if(position == 1){
-            imageView.setImageResource(image_ressources[position]);
-            textView1.setText("Zutaten");
+        if(sirup == false) {
+            if (position == 0) {
+                imageView.setImageResource(drinkData[drinkID].getDefaultImg());
+                textView1.setText(drinkData[drinkID].getFlavourText());
+                textView2.setText("");
+            } else if (position == 1) {
+                imageView.setImageResource(image_ressources[position]);
+                textView1.setText("Zutaten");
             /*
             StringBuilder builder = new StringBuilder();
             for (String details: drinkData[drinkID].getIngridients()){
@@ -90,12 +99,34 @@ public class CustomDrinkAdapter extends PagerAdapter {
             }
             textView2.setText(builder.toString());
             */
+            } else {
+                imageView.setImageResource(image_ressources[position]);
+                //Smart Input for Drink - position compare to Drink ID!!
+                textView1.setText(inst_ressources[position]);
+                textView2.setText("");
+            }
         }
-        else {
-            imageView.setImageResource(image_ressources[position]);
-            //Smart Input for Drink - position compare to Drink ID!!
-            textView1.setText(inst_ressources[position]);
-            textView2.setText("");
+        else if(sirup == true) {
+            if (position == 0) {
+                imageView.setImageResource(drinkHandler.sirup.getDefaultImg());
+                textView1.setText(drinkHandler.sirup.getFlavourText());
+                textView2.setText("");
+            } else if (position == 1) {
+                imageView.setImageResource(image_ressources[position]);
+                textView1.setText("Zutaten");
+            /*
+            StringBuilder builder = new StringBuilder();
+            for (String details: drinkData[drinkID].getIngridients()){
+                builder.append(details + "\n");
+            }
+            textView2.setText(builder.toString());
+            */
+            } else {
+                imageView.setImageResource(image_ressources[position]);
+                //Smart Input for Drink - position compare to Drink ID!!
+                textView1.setText(inst_ressources[position]);
+                textView2.setText("");
+            }
         }
         container.addView(item_view);
 

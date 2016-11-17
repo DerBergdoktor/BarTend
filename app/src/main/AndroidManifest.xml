@@ -9,18 +9,24 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen" android:screenOrientation="portrait">
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DrinkChooser" />
-        <activity android:name=".DrinkPage" />
-        <activity android:name=".TippPage" />
-        <activity android:name=".TippViewer"></activity>
+        <activity android:name=".DrinkChooser" android:screenOrientation="portrait"/>
+        <activity android:name=".DrinkPage" android:screenOrientation="portrait"/>
+        <activity android:name=".TippPage" android:screenOrientation="portrait"/>
+        <activity android:name=".TippViewer" android:screenOrientation="portrait"/>
+        <activity android:name=".InfoChooser" android:screenOrientation="portrait"/>
+        <activity android:name=".InfoBoxBitters" android:screenOrientation="portrait"/>
+        <activity android:name=".InfoBoxSweet" android:screenOrientation="portrait"/>
+        <activity android:name=".InfoBoxSour" android:screenOrientation="portrait"/>
+        <activity android:name=".InfoBoxSpirits" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

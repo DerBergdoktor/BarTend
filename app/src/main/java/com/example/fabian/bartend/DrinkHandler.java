@@ -10,6 +10,7 @@ public class DrinkHandler {
 
     public Drink [] drink_data;
     public int[] drink_images;
+    static Drink sirup;
 
     public void fillDrinkData (){
 
@@ -17,6 +18,33 @@ public class DrinkHandler {
         drink_images = new int[20];
 
         // Create Drink objects, set all the values, paste them into drink_data
+
+        //Create Sirup
+        sirup = new Drink();
+        sirup.setEffort("simpel");
+
+        sirup.setName("Einfacher Sirup");
+
+        sirup.setSteps(8);
+
+
+        sirup.addIng("Zucker");
+        sirup.addIng("Wasser");
+
+        sirup.addStep("1",R.drawable.sirup1);
+        sirup.addStep("2",R.drawable.sirup_ing);
+        sirup.addStep("Wasser kochen",R.drawable.sirup1);
+        sirup.addStep("Zucker und Wasser in ein verschließbares Glas (Einmachglas) geben",R.drawable.sirup2);
+        sirup.addStep("Umrühren bis der Zucker sich gelöst hat",R.drawable.sirup3);
+        sirup.addStep("Gewürz (bspw. Vanilleschote) hinzugeben",R.drawable.sirup4);
+        sirup.addStep("Glas fest verschließen und mindestens 4h ziehen lassen",R.drawable.sirup5);
+        sirup.addStep("",R.drawable.fertig);
+
+        sirup.setID(150);
+
+        sirup.setFlavourText("Sweet and Spicy");
+
+        sirup.setDefaultImg(6);
 
         //Create Martini
         Drink martini = new Drink();
@@ -44,7 +72,7 @@ public class DrinkHandler {
 
         martini.setID(0);
 
-        martini.setFlavourText("Das einzig wahre Bond Girl");
+        martini.setFlavourText("Der Klassiker: Gerührt, nicht geschüttelt");
 
         martini.setDefaultImg(7);
 
@@ -101,7 +129,7 @@ public class DrinkHandler {
 
         manH.addStep("1",R.drawable.manh1);
         manH.addStep("2",R.drawable.manhattan_ing);
-        manH.addStep("Whiskey, Wermut und bitters in ein großes Glas (Mixglas) geben",R.drawable.manh1);
+        manH.addStep("Whiskey, Wermut und Bitters in ein großes Glas (Mixglas) geben",R.drawable.manh1);
         manH.addStep("Glas mit Eis füllen",R.drawable.manh2);
         manH.addStep("Umrühren bis das Glas von außen sehr kalt ist",R.drawable.manh3);
         manH.addStep("Eine Cocktailkirsche in einem Cocktailglas platzieren",R.drawable.manh4);
@@ -703,7 +731,7 @@ public class DrinkHandler {
         return drink_images;
     }
 
-    public void setDrink_data(Drink[] newDrinks){
+    public void setDrink_data(Drink[] newDrinks) {
         drink_data = null;
         drink_data = newDrinks;
         drink_images = new int[drink_data.length];
