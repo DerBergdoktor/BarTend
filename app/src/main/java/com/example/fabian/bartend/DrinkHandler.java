@@ -57,7 +57,7 @@ public class DrinkHandler {
 
 
         martini.addIng("Gin");
-        martini.addIng("Wermut");
+        martini.addIng("Wermut (trocken)");
         martini.addIng("Orangenbitter");
 
         martini.addStep("1",R.drawable.martini01);
@@ -107,7 +107,7 @@ public class DrinkHandler {
 
         oldF.setID(1);
 
-        oldF.setFlavourText("old but gold");
+        oldF.setFlavourText("Old but Gold");
 
         oldF.setDefaultImg(8);
 
@@ -124,7 +124,7 @@ public class DrinkHandler {
 
 
         manH.addIng("Whiskey");
-        manH.addIng("Wermut");
+        manH.addIng("Wermut (süß)");
         manH.addIng("Aromatic Bitters");
 
         manH.addStep("1",R.drawable.manh1);
@@ -155,7 +155,7 @@ public class DrinkHandler {
         daiq.setSteps(10);
 
 
-        daiq.addIng("Rum");
+        daiq.addIng("Rum (hell)");
         daiq.addIng("Limette");
         daiq.addIng("Zucker");
 
@@ -222,7 +222,7 @@ public class DrinkHandler {
 
 
         irish.addIng("Kaffee");
-        irish.addIng("Sirup");
+        irish.addIng("Zuckersirup");
         irish.addIng("Sahne");
         irish.addIng("Whiskey");
 
@@ -277,7 +277,7 @@ public class DrinkHandler {
 
         bloody.setID(6);
 
-        bloody.setFlavourText("Frisch und rot...");
+        bloody.setFlavourText("Taste the Spice!");
 
         bloody.setDefaultImg(10);
 
@@ -295,7 +295,7 @@ public class DrinkHandler {
 
         negroni.addIng("Gin");
         negroni.addIng("Campari");
-        negroni.addIng("Wermut");
+        negroni.addIng("Wermut (süß)");
 
         negroni.addStep("1",R.drawable.negroni1);
         negroni.addStep("2",R.drawable.negroni_ing);
@@ -309,7 +309,7 @@ public class DrinkHandler {
 
         negroni.setID(7);
 
-        negroni.setFlavourText("The Italian Classic");
+        negroni.setFlavourText("Aperativo Classico");
 
         negroni.setDefaultImg(7);
 
@@ -432,7 +432,8 @@ public class DrinkHandler {
         maitai.setSteps(9);
 
 
-        maitai.addIng("Rum");
+        maitai.addIng("Rum (dunkel)");
+        maitai.addIng("Rum (hell)");
         maitai.addIng("Limette");
         maitai.addIng("Curacao");
         maitai.addIng("Orgeat");
@@ -498,7 +499,7 @@ public class DrinkHandler {
         planters.setSteps(8);
 
 
-        planters.addIng("Rum");
+        planters.addIng("Rum (dunkel)");
         planters.addIng("Sirup");
         planters.addIng("Ananassaft");
         planters.addIng("Crushed Ice");
@@ -603,7 +604,7 @@ public class DrinkHandler {
 
         boulevard.addIng("Campari");
         boulevard.addIng("Whiskey");
-        boulevard.addIng("Wermut");
+        boulevard.addIng("Wermut (süß)");
 
         boulevard.addStep("1",R.drawable.boulevardier1);
         boulevard.addStep("2",R.drawable.boulevardier_ing);
@@ -631,7 +632,7 @@ public class DrinkHandler {
         frozenpina.setSteps(7);
 
 
-        frozenpina.addIng("Rum");
+        frozenpina.addIng("Rum (hell)");
         frozenpina.addIng("Ananassaft");
         frozenpina.addIng("Kokosmilch");
         frozenpina.addIng("Limette");
