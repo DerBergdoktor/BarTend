@@ -91,7 +91,7 @@ public class DrinkHandler {
 
         oldF.addIng("Whiskey");
         oldF.addIng("Zucker");
-        oldF.addIng("aromatic bitters");
+        oldF.addIng("Aromatic Bitters");
 
 
         oldF.addStep("1",R.drawable.oldf01);
@@ -125,7 +125,7 @@ public class DrinkHandler {
 
         manH.addIng("Whiskey");
         manH.addIng("Wermut");
-        manH.addIng("aromatic bitters");
+        manH.addIng("Aromatic Bitters");
 
         manH.addStep("1",R.drawable.manh1);
         manH.addStep("2",R.drawable.manhattan_ing);
