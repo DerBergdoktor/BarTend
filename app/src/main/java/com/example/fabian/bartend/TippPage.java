@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TippPage extends AppCompatActivity {
 
@@ -78,6 +79,7 @@ public class TippPage extends AppCompatActivity {
         drinkHandler.fillDrinkData();
         drinks = drinkHandler.getDrink_data();
         allIngreds = drinkHandler.getAllIngredients();
+        Collections.sort(allIngreds);
         actionBar = getSupportActionBar();
         actionBar.hide();
 

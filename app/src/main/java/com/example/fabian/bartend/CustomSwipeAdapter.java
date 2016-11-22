@@ -2,9 +2,6 @@ package com.example.fabian.bartend;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.media.Image;
-import android.renderscript.Type;
-import android.support.v4.view.LayoutInflaterCompat;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
