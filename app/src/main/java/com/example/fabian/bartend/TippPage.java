@@ -3,6 +3,7 @@ package com.example.fabian.bartend;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -94,7 +95,20 @@ public class TippPage extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listView);
         listadapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_multiple_choice, android.R.id.text1, allings);
+                android.R.layout.simple_list_item_multiple_choice, android.R.id.text1, allings){
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view =super.getView(position, convertView, parent);
+
+                TextView textView=(TextView) view.findViewById(android.R.id.text1);
+
+            /*YOUR CHOICE OF COLOR*/
+                textView.setTextColor(Color.parseColor("#b7c3b7"));
+
+                return view;
+            }
+        };
         listView.setAdapter(listadapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
