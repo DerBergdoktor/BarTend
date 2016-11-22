@@ -25,7 +25,7 @@ public class DrinkHandler {
 
         sirup.setName("Einfacher Sirup");
 
-        sirup.setSteps(8);
+        sirup.setSteps(10);
 
 
         sirup.addIng("Zucker");
@@ -37,14 +37,16 @@ public class DrinkHandler {
         sirup.addStep("Zucker und Wasser in ein verschließbares Glas (Einmachglas) geben",R.drawable.sirup2);
         sirup.addStep("Umrühren bis der Zucker sich gelöst hat",R.drawable.sirup3);
         sirup.addStep("Gewürz (bspw. Vanilleschote) hinzugeben",R.drawable.sirup4);
-        sirup.addStep("Glas fest verschließen und mindestens 4h ziehen lassen",R.drawable.sirup5);
+        sirup.addStep("Glas fest verschließen und kräftig schütteln", R.drawable.sirup6);
+        sirup.addStep("Mindestens 4h ziehen lassen",R.drawable.sirup5);
+        sirup.addStep("Der Sirup ist servierbereit.",R.drawable.sirup7);
         sirup.addStep("",R.drawable.fertig);
 
         sirup.setID(150);
 
         sirup.setFlavourText("Sweet and Spicy");
 
-        sirup.setDefaultImg(6);
+        sirup.setDefaultImg(8);
 
         //Create Martini
         Drink martini = new Drink();

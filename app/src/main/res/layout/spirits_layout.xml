@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/SCROLLER"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*"
+            android:layout_margin="-50dp"
+            >
+            <ImageView
+                android:layout_width="800px"
+                android:layout_height="300px"
+                android:id="@+id/spiritHeader"
+                />
+
+            <ImageView
+                android:layout_width="750px"
+                android:layout_height="750px"
+                android:id="@+id/spiritPic"
+                android:scaleX="0.9"
+                android:scaleY="0.9"
+                />
+
+            <TextView
+                android:id="@+id/spiritText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:textSize="20dp"
+                android:textColor="@color/text_color"
+                />
+        </TableLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

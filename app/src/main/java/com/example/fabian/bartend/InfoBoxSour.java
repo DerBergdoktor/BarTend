@@ -50,7 +50,7 @@ public class InfoBoxSour extends AppCompatActivity {
         infoPic3.setImageResource(R.drawable.lemon_juice);
         infoPic4.setImageResource(R.drawable.lime_juice);
 
-        infoText1.setText("Sours sind eine Kategorie von Cocktails. Ein Sour setzt sich aus einer Spirituose, Zitronen- oder Limettensaft und einem Süßungsmittel (zumeist Zucker) zusammen. Klassische Vertreter dieser Kategorie sind der Whisky Sour, der Cosmopolitan oder der Magarita.\n" +
+        infoText1.setText("Sours sind eine Kategorie von Cocktails. Ein Sour setzt sich aus einer Spirituose, Zitronen- oder Limettensaft und einem Süßungsmittel (zumeist Zucker) zusammen. Klassische Vertreter dieser Kategorie sind der Whisky Sour, der Cosmopolitan oder der Margarita.\n" +
                 "Sie werden zumeist gut geschüttelt und ohne Eis (“straight”) in einer Cocktailschale, bzw. einem “Sour Glas” serviert.");
         infoText2.setText("Die Ausnahme ist der Whisky Sour, der klassischerweise in einem Old Fashioned Glas mit Eis (“on the rocks”) serviert wird.");
         infoText3.setText("Wenn ein Rezept eine spezifische Säurekomponente vorschreibt, kann man wahlweise, obgleich es etwas unkonventionell ist, diese austauschen (bspw. Zitrone durch Limette ersetzen).");
