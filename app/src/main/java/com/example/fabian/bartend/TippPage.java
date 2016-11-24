@@ -36,7 +36,7 @@ public class TippPage extends AppCompatActivity {
     protected boolean repeat = false;
     protected boolean hit = false;
     protected ArrayList<Drink> closeSugg = new ArrayList<Drink>();
-    protected static ArrayList<String> missingIng = new ArrayList<String>();
+    //protected static ArrayList<String> missingIng = new ArrayList<String>();
     protected ArrayList<String> allIngreds;
     protected Drink[] drinks;
     AlertDialog dialog;
@@ -218,14 +218,14 @@ public class TippPage extends AppCompatActivity {
                             matchedDrinks[j] = closeDrinks;
                             j++;
                         }
-                        for (int i = 0;i<ings.size();i++) {
+                        /*for (int i = 0;i<ings.size();i++) {
                             for (String compare2 : closeSugg.get(i).getIngridients()) {
                                 if (!ings.get(i).equalsIgnoreCase(compare2)) {
                                     missingIng.add(compare2);
                                 }
                             }
                             listCount++;
-                        }
+                        }*/
                         dialogBuilder();
                     }
                 }
